@@ -1,3 +1,4 @@
+
 let users=[];
 function movetosignup()
 {
@@ -20,7 +21,11 @@ function adduser()
     let confirm_password = document.getElementById("confirm_password");
     if(username.value == "" || password.value == "" || confirm_password.value == "")
     {
-        alert("Please fill the fields ");
+        swal.fire({
+            title:"Error!",
+            icon:"error",
+            text:"Please fill all fields"
+        });
     }
     else
     {
@@ -34,7 +39,11 @@ function adduser()
         }
         if(look == false)
         {
-            alert("this user already taken ");
+            swal.fire({
+                title : "Error!",
+                text:"this user is already taken",
+                icon : "error"
+            });
         }
         else
         {
@@ -45,11 +54,19 @@ function adduser()
                     "password": password.value
                 };
                 users.push(user);
-                alert("The user has been added")
+                swal.fire({
+                    icon:"success",
+                    title:"Success Process",
+                    text:"The user Has been added"
+                });
             }
             else
             {
-                alert("Password not match");
+                swal.fire({
+                    icon:"error",
+                    title:"Error!",
+                    text:"This Passwords not match"
+                });
             }
         }
     }
@@ -68,10 +85,17 @@ function login()
     }
     if(look)
     {
-        alert("Welome 😊");
+        swal.fire({
+            icon:"success",
+            text:"Welcome again"
+        });
     }
     else
     {
-        alert("your are not user  :(") ;
+        swal.fire({
+            icon:"error",
+            title:"error",
+            text:"you are not user ¯\_(ツ)_/¯"
+        });
     }
 }
